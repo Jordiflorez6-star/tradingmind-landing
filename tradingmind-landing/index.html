@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=GTM-PGW55KFJ' + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PGW55KFJ');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <title>TradingMind AI – Señales IA para XAUUSD en tiempo real</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Señales de trading para XAUUSD generadas por IA multiagente con análisis visual y macro. Prueba gratis 5 días en Telegram y elige entre Plan Lite o Pro. Contenido educativo." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OG / Social -->
+  <meta property="og:title" content="TradingMind AI – Señales IA para XAUUSD en tiempo real" />
+  <meta property="og:description"
+    content="IA multiagente con análisis visual del gráfico y noticias macro en tiempo real. Prueba gratis 5 días y accede a señales educativas en tiempo real para XAUUSD vía Telegram." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tradingmindai.es" />
+  <meta property="og:image" content="https://tradingmindai.es/assets/img/logo-full.png" />
+
+  <!-- Favicon con el logo -->
+  <link rel="icon" type="image/png" href="assets/img/logo-avatar.png">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #02040a;
+      --bg-alt: #050816;
+      --card: #0b1020;
+      --accent: #00ffd1;
+      --accent-soft: #00c26f;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --border-subtle: 1px solid rgba(148, 163, 184, 0.15);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      background: radial-gradient(circle at top, #041626 0, #02040a 45%, #000000 100%);
+      color: var(--text);
+      font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2, 4, 10, 0.95), rgba(2, 4, 10, 0.8), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Poppins', system-ui, sans-serif;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 28px;
+      /* puedes subir a 32px si lo quieres un pelín más grande */
+      width: auto;
+      display: block;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #00ffd1, #00c26f 40%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(0, 255, 209, 0.5);
+      font-size: 0.95rem;
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      font-size: 0.82rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+      color: #020617;
+      box-shadow: 0 0 30px rgba(0, 255, 209, 0.5);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(0, 255, 209, 0.55);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.2rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(0, 255, 209, 0.7);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-size: clamp(2rem, 3.4vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #00ffd1, #00c26f);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      box-shadow: 0 0 14px rgba(0, 194, 111, 0.7);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--accent);
+    }
+
+    /* mini precios en hero */
+    .hero-pricing-mini {
+      margin-top: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-pricing-mini strong {
+      color: var(--accent);
+    }
+
+    .hero-pricing-mini button {
+      border: none;
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.78rem;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .phone-mockup {
+      border-radius: 30px;
+      background: radial-gradient(circle at top, #0b1120, #020617 60%, #000000 100%);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      padding: 0.8rem;
+      max-width: 320px;
+      overflow: hidden;
+    }
+
+    .phone-mockup img {
+      border-radius: 24px;
+    }
+
+    .hero-dashboard-image {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 20px;
+      border: var(--border-subtle);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    .hero-dashboard-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .feature-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 80%);
+      border: var(--border-subtle);
+      padding: 1rem;
+      font-size: 0.82rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .feature-card.highlight {
+      border-color: rgba(0, 255, 209, 0.7);
+      box-shadow: 0 18px 40px rgba(0, 255, 209, 0.18);
+      background: radial-gradient(circle at top, rgba(0, 255, 209, 0.14), #020617 80%);
+    }
+
+    .feature-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .feature-name {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-name span {
+      color: var(--accent);
+    }
+
+    .feature-text {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .features-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 42rem;
+      margin: 0.2rem auto 0;
+      text-align: center;
+    }
+
+    /* How it works */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .step-card {
+      border-radius: var(--radius-lg);
+      border: var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), #020617 80%);
+      padding: 0.9rem 0.9rem 1rem;
+      font-size: 0.82rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+    }
+
+    .step-index {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-text {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* Escenarios IA */
+    .scenarios-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .scenario-card {
+      border-radius: 20px;
+      border: var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(0, 255, 209, 0.12), #020617 70%);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.84rem;
+    }
+
+    .scenario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .scenario-name {
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .scenario-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .scenario-text {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .scenario-image {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 0.2rem;
+    }
+
+    .scenario-range {
+      padding: 0.9rem 0.8rem;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), #020617 80%);
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+    }
+
+    .range-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,
+          rgba(148, 163, 184, 0.2),
+          rgba(148, 163, 184, 0.8),
+          rgba(148, 163, 184, 0.2));
+      position: relative;
+    }
+
+    .range-bar::before,
+    .range-bar::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      width: 2px;
+      height: 20px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    .range-bar::before {
+      left: 20%;
+    }
+
+    .range-bar::after {
+      right: 20%;
+    }
+
+    .scenario-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .scenario-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(0, 255, 209, 0.85);
+    }
+
+    /* Pricing */
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      border-radius: 22px;
+      border: var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(0, 255, 209, 0.14), #020617 60%);
+      padding: 1.5rem 1.4rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .pricing-card.lite {
+      background: radial-gradient(circle at top, rgba(148, 163, 184, 0.12), #020617 70%);
+    }
+
+    .pricing-card.pro {
+      border-color: rgba(34, 197, 94, 0.7);
+      box-shadow: 0 20px 50px rgba(0, 255, 209, 0.25);
+    }
+
+    .pricing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-name {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .pricing-price {
+      font-size: 1.8rem;
+      font-family: 'Poppins', system-ui, sans-serif;
+      white-space: nowrap;
+      /* evita que se parta en dos líneas */
+    }
+
+    .pricing-price span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'Manrope', system-ui, sans-serif;
+    }
+
+    .pricing-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .pricing-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-list li::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 0.35rem;
+    }
+
+    .pricing-footnote {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .pricing-footnote strong {
+      color: var(--accent-soft);
+    }
+
+    /* FAQ */
+    .faq-grid {
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      border-radius: 14px;
+      border: var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.8rem 0.95rem;
+      font-size: 0.84rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      background: #020617;
+      padding: 1.6rem 0 1.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-disclaimer {
+      font-size: 0.75rem;
+      max-width: 720px;
+    }
+
+    .footer-disclaimer strong {
+      color: var(--danger);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.3rem;
+      }
+
+      .hero {
+        padding-top: 2.6rem;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pricing-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .scenarios-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        height: auto;
+        row-gap: 0.6rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      .nav-link {
+        font-size: 0.78rem;
+      }
+
+      .nav-actions .btn,
+      .nav-actions a.btn {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.85rem;
+      }
+
+      .hero {
+        padding: 2.4rem 0 2.2rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.7rem, 7.2vw, 2.1rem);
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-cta .btn,
+      .hero-cta a.btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .phone-mockup {
+        max-width: 280px;
+      }
+
+      .hero-dashboard-image {
+        max-width: 320px;
+      }
+
+      .features-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .steps-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      section {
+        padding: 2.4rem 0;
+      }
+
+      .pricing-card {
+        padding: 1.2rem 1rem 1.4rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .hero-pricing-mini {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        row-gap: 0.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGW55KFJ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page" id="top">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo">
+            <img src="assets/img/logo-full.png" alt="TradingMind AI" class="logo-img">
+          </div>
+          <div class="nav-actions">
+            <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+            <a href="#precio" class="nav-link">Planes</a>
+            <a href="#escenarios" class="nav-link">Escenarios IA</a>
+            <button class="btn btn-ghost" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
+              FAQ
+            </button>
+            <a href="https://t.me/TradingMind_Free_ES" target="_blank" rel="noopener" class="btn btn-primary">
+              Acceso gratis 5 días
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                IA multiagente para XAUUSD
+              </div>
+              <h1 class="hero-title">
+                Señales IA en tiempo real.<br />
+                <span>Análisis visual y macro del oro.</span>
+              </h1>
+              <p class="hero-subtitle">
+                TradingMind AI combina análisis técnico, visión artificial del gráfico y noticias macroeconómicas en
+                tiempo real para generar señales educativas de XAUUSD en tu Telegram. Prueba gratis 5 días y después
+                elige el plan que mejor encaje contigo.
+              </p>
+
+              <div class="hero-badges">
+                <div class="badge">
+                  <span class="badge-dot"></span>
+                  Señales en directo · Lunes a viernes
+                </div>
+                <div class="badge">
+                  🤖 IA visual + IA macro + gestión de riesgo
+                </div>
+                <div class="badge">
+                  🇪🇸 Español · Enfocado solo en oro (XAUUSD)
+                </div>
+              </div>
+
+              <div class="hero-cta">
+                <a href="https://t.me/TradingMind_Free_ES" target="_blank" rel="noopener" class="btn btn-primary">
+                  🚀 Empezar prueba gratis 5 días
+                </a>
+                <button class="btn btn-ghost"
+                  onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">
+                  Ver cómo funciona
+                </button>
+              </div>
+              <div class="hero-meta">
+                <strong>No se requiere tarjeta.</strong> Acceso vía canal privado de Telegram. Contenido educativo, no
+                asesoramiento financiero.
+              </div>
+
+              <!-- Mini sección de precios en hero -->
+              <div class="hero-pricing-mini">
+                <span><strong>Plan Lite</strong> 10 €/mes</span>
+                <span>·</span>
+                <span><strong>Plan Pro</strong> 25 €/mes</span>
+                <span>· Sin permanencia</span>
+                <button type="button" onclick="document.getElementById('precio').scrollIntoView({behavior:'smooth'})">
+                  Ver detalles de los planes
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="phone-mockup">
+                <img src="assets/img/mockup-telegram.jpg" alt="Señales IA en canal de Telegram de TradingMind AI"
+                  loading="lazy">
+              </div>
+              <div class="hero-dashboard-image">
+                <img src="assets/img/dashboard.jpg" alt="Dashboard de TradingMind AI analizando XAUUSD con IA"
+                  loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POR QUÉ DIFERENTE -->
+      <section id="diferente">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">IA Multiagente + Visual + Macro</div>
+            <h2 class="section-title">Por qué TradingMind es diferente</h2>
+            <p class="section-subtitle">
+              No es un canal más de “señales mágicas”. TradingMind AI combina análisis técnico, lectura visual del
+              gráfico y contexto macroeconómico en tiempo real para filtrar lo que de verdad importa en XAUUSD.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-label">Agente 01</div>
+              <div class="feature-name"><span>Técnico</span> · Estructura</div>
+              <div class="feature-text">
+                Analiza soportes, resistencias, rupturas y tendencias para identificar zonas probables de entrada en
+                XAUUSD con una lógica coherente.
+              </div>
+            </div>
+
+            <div class="feature-card highlight">
+              <div class="feature-label">Agente 02</div>
+              <div class="feature-name"><span>Visual</span> · Lectura del gráfico</div>
+              <div class="feature-text">
+                IA con visión que “observa” el gráfico en directo, detecta patrones, zonas de liquidez y cambios de
+                estructura que a simple vista pueden pasar desapercibidos.
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-label">Agente 03</div>
+              <div class="feature-name"><span>Volatilidad</span> · Impulso</div>
+              <div class="feature-text">
+                Mide la fuerza del movimiento y la volatilidad actual para evitar operar en momentos sin intención o con
+                ruido extremo.
+              </div>
+            </div>
+
+            <div class="feature-card highlight">
+              <div class="feature-label">Agente 04</div>
+              <div class="feature-name"><span>Macro & Noticias</span> · Contexto global</div>
+              <div class="feature-text">
+                Tiene en cuenta el calendario económico y noticias relevantes que pueden afectar al oro, ajustando la
+                agresividad de las señales según el entorno.
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-label">Agente 05</div>
+              <div class="feature-name"><span>Riesgo</span> · Exposición</div>
+              <div class="feature-text">
+                Evalúa el contexto general, el rango del día y el riesgo de cada escenario para priorizar setups con
+                mejor relación beneficio/riesgo.
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-label">Agente 06</div>
+              <div class="feature-name"><span>Decisión</span> · Señal final</div>
+              <div class="feature-text">
+                Combina las salidas de todos los agentes (técnico, visual, volatilidad, macro y riesgo) para generar una
+                decisión final clara y enviarla como señal al canal Pro.
+              </div>
+            </div>
+          </div>
+
+          <p class="features-note">
+            El objetivo no es “adivinar el mercado”, sino darte una lectura estructurada y constante del oro para que
+            tomes decisiones con más información y menos ruido.
+          </p>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section id="como-funciona">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Paso a paso</div>
+            <h2 class="section-title">Cómo funciona TradingMind AI</h2>
+            <p class="section-subtitle">
+              Diseñado para que pruebes la IA sin complicaciones. Entras, observas las señales, evalúas la calidad y
+              solo si encaja contigo pasas al plan que prefieras.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-index">1</div>
+              <div class="step-title">Entra al canal Free</div>
+              <p class="step-text">
+                Únete a nuestro canal gratuito en Telegram y activa tu prueba de 5 días sin necesidad de tarjeta.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-index">2</div>
+              <div class="step-title">Recibe señales IA</div>
+              <p class="step-text">
+                La IA multiagente analiza XAUUSD y envía señales educativas en tiempo real al canal Pro. Tú decides cómo
+                interpretarlas.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-index">3</div>
+              <div class="step-title">Evalúa la calidad</div>
+              <p class="step-text">
+                Observa cómo se comportan las señales, la lógica de las entradas y la coherencia con el movimiento del
+                mercado, incluyendo noticias y cambios bruscos.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-index">4</div>
+              <div class="step-title">Elige Lite o Pro</div>
+              <p class="step-text">
+                Si te encaja, eliges entre el plan Lite (información reducida y número limitado de señales educativas) o
+                el Pro (señales completas en tiempo real).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING (SUBIDO) -->
+      <section id="precio">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Planes</div>
+            <h2 class="section-title">Elige cómo quieres usar la IA</h2>
+            <p class="section-subtitle">
+              Pruebas 5 días gratis y luego decides si prefieres empezar con el plan Lite o ir directo al Pro. Sin
+              permanencia.
+            </p>
+          </div>
+
+          <div class="pricing-layout">
+            <!-- Lite -->
+            <div class="pricing-card lite">
+              <div class="pricing-header">
+                <div>
+                  <div class="pricing-name">Plan Lite</div>
+                  <div class="pricing-subtitle">
+                    Para observar las señales y entender cómo piensa la IA.
+                  </div>
+                </div>
+                <div class="pricing-price">
+                  10 €<span>/mes</span>
+                </div>
+              </div>
+
+              <ul class="pricing-list">
+                <li>Acceso a un número limitado de señales educativas de XAUUSD.</li>
+                <li>Muestra la <strong>dirección</strong> (BUY/SELL) y la <strong>zona general</strong> de interés.</li>
+                <li>No incluye precio de entrada exacto, SL ni TP.</li>
+                <li>No incluye comentarios detallados ni actualizaciones de la señal.</li>
+                <li>Enfocado a observar, aprender y familiarizarte con el sistema.</li>
+              </ul>
+
+              <div class="hero-cta" style="margin-bottom:0.4rem;">
+                <a href="https://t.me/TradingMindAccessBot?start=es" target="_blank" rel="noopener"
+                  class="btn btn-ghost">
+                  ✨ Activar Plan Lite
+                </a>
+              </div>
+
+              <div class="pricing-footnote">
+                Recomendado si quieres empezar de forma más básica y centrarte en el aprendizaje antes de usar señales
+                completas.
+              </div>
+            </div>
+
+            <!-- Pro -->
+            <div class="pricing-card pro">
+              <div class="pricing-header">
+                <div>
+                  <div class="pricing-name">Plan Pro</div>
+                  <div class="pricing-subtitle">
+                    Para usar todo el potencial de TradingMind AI en tiempo real.
+                  </div>
+                </div>
+                <div class="pricing-price">
+                  25 €<span>/mes</span>
+                </div>
+              </div>
+
+              <ul class="pricing-list">
+                <li>Acceso a todas las señales generadas por la IA para XAUUSD en tiempo real.</li>
+                <li>Muestra <strong>entrada exacta</strong>, <strong>SL</strong> y <strong>TP</strong> sugeridos.</li>
+                <li>Incluye comentarios de la IA sobre el motivo de la señal (técnico, visual y macro).</li>
+                <li>Recibe actualizaciones si el contexto del mercado cambia.</li>
+                <li>Sin permanencia: puedes cancelar cuando quieras.</li>
+              </ul>
+
+              <div class="hero-cta" style="margin-bottom:0.4rem;">
+                <a href="https://t.me/TradingMindAccessBot?start=es" target="_blank" rel="noopener"
+                  class="btn btn-primary">
+                  🔐 Activar Plan Pro en Telegram
+                </a>
+                <button class="btn btn-ghost" onclick="window.open('https://t.me/TradingMind_Free_ES','_blank')">
+                  Probar primero 5 días gratis
+                </button>
+              </div>
+
+              <div class="pricing-footnote">
+                El Plan Pro está pensado para quienes quieren trabajar con escenarios completos: entrada, SL, TP y
+                contexto. <strong>Todo el contenido es educativo.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ESCENARIOS IA -->
+      <section id="escenarios">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Escenarios IA</div>
+            <h2 class="section-title">Escenarios que la IA detecta en el oro</h2>
+            <p class="section-subtitle">
+              En lugar de limitarse a lanzar señales aisladas, TradingMind AI identifica escenarios estructurados del
+              mercado y decide si tiene sentido plantear una operación educativa o no.
+            </p>
+          </div>
+
+          <div class="scenarios-layout">
+            <!-- Escenario 1 -->
+            <div class="scenario-card">
+              <div class="scenario-header">
+                <div>
+                  <div class="scenario-label">Escenario 01</div>
+                  <div class="scenario-name">Ruptura con intención</div>
+                </div>
+                <span class="scenario-chip">
+                  <span class="scenario-dot"></span>
+                  Breakout + volumen
+                </span>
+              </div>
+              <p class="scenario-text">
+                La IA detecta una ruptura de zona clave con volumen y volatilidad crecientes. Si el contexto técnico,
+                visual y macro acompaña, puede generar una señal educativa a favor del impulso.
+              </p>
+              <div class="scenario-image">
+                <img src="assets/img/dashboard.jpg" alt="Ejemplo de ruptura con intención en el oro analizada por IA"
+                  loading="lazy">
+              </div>
+            </div>
+
+            <!-- Escenario 2 -->
+            <div class="scenario-card">
+              <div class="scenario-header">
+                <div>
+                  <div class="scenario-label">Escenario 02</div>
+                  <div class="scenario-name">Retroceso limpio</div>
+                </div>
+                <span class="scenario-chip">
+                  <span class="scenario-dot"></span>
+                  Pullback a zona de valor
+                </span>
+              </div>
+              <p class="scenario-text">
+                Tras un movimiento fuerte, el precio retrocede hacia una zona de liquidez o estructura. La IA visual
+                analiza si el retroceso es limpio y si tiene sentido buscar continuación.
+              </p>
+              <div class="scenario-image">
+                <img src="assets/img/retroceso.jpg" alt="Ejemplo de retroceso limpio analizado por TradingMind AI"
+                  loading="lazy">
+              </div>
+            </div>
+
+            <!-- Escenario 3 -->
+            <div class="scenario-card">
+              <div class="scenario-header">
+                <div>
+                  <div class="scenario-label">Escenario 03</div>
+                  <div class="scenario-name">Alta volatilidad / noticias</div>
+                </div>
+                <span class="scenario-chip">
+                  <span class="scenario-dot"></span>
+                  Macro + noticias
+                </span>
+              </div>
+              <p class="scenario-text">
+                En publicaciones importantes (CPI, tipos, empleo, etc.), la IA combina noticias y volatilidad para
+                reducir agresividad, evitar entradas impulsivas o simplemente esperar a que el mercado se estabilice.
+              </p>
+              <div class="scenario-image">
+                <img src="assets/img/ia-visual.jpg" alt="Ejemplo de IA analizando el gráfico y el impacto de noticias"
+                  loading="lazy">
+              </div>
+            </div>
+
+            <!-- Escenario 4 -->
+            <div class="scenario-card">
+              <div class="scenario-header">
+                <div>
+                  <div class="scenario-label">Escenario 04</div>
+                  <div class="scenario-name">Rango lateral y filtro</div>
+                </div>
+                <span class="scenario-chip">
+                  <span class="scenario-dot"></span>
+                  Menos es más
+                </span>
+              </div>
+              <p class="scenario-text">
+                Cuando el oro entra en rangos estrechos sin dirección clara, la IA prioriza la gestión del riesgo y
+                puede optar por no generar nuevas señales hasta que haya una ruptura clara del rango.
+              </p>
+              <div class="scenario-image scenario-range">
+                <div class="range-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">FAQ</div>
+            <h2 class="section-title">Preguntas frecuentes</h2>
+            <p class="section-subtitle">
+              Algunas de las dudas más comunes antes de empezar. Si necesitas algo más específico, podrás escribirnos
+              desde el propio canal de Telegram.
+            </p>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-item">
+              <div class="faq-q">¿Qué activo analiza TradingMind AI?</div>
+              <div class="faq-a">
+                Actualmente el sistema está centrado en XAUUSD (oro frente al dólar). Esto permite especialización y un
+                análisis más profundo de un solo activo.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Opera automáticamente en mi cuenta?</div>
+              <div class="faq-a">
+                No. TradingMind AI no es un bot de ejecución automática. Envía señales y escenarios educativos en tiempo
+                real a tu Telegram. Tú decides si operar, con qué riesgo y en qué bróker.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Qué diferencia hay entre el plan Lite y el Pro?</div>
+              <div class="faq-a">
+                El plan Lite te muestra un número limitado de señales educativas con la dirección (BUY/SELL) y la zona
+                general de interés. El plan Pro añade la entrada exacta, SL, TP, comentarios de la IA (incluyendo
+                análisis visual y macro) y actualizaciones completas en tiempo real.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Necesito experiencia previa en trading?</div>
+              <div class="faq-a">
+                Es recomendable tener una base mínima sobre qué es un STOP, un TP y cómo funciona el mercado. Aun así,
+                intentamos que las señales sean claras y acompañadas de contexto entendible.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Qué horario cubren las señales?</div>
+              <div class="faq-a">
+                El sistema envía señales de lunes a viernes durante la sesión europea y americana, en los tramos de
+                mayor actividad del oro. El número de señales varía según las condiciones del mercado.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Puedo cancelar mi suscripción cuando quiera?</div>
+              <div class="faq-a">
+                Sí. No hay permanencia. Si decides dejar de usar el servicio, simplemente cancelas tu suscripción y el
+                acceso se detendrá al finalizar el periodo ya pagado.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Es esto asesoramiento financiero?</div>
+              <div class="faq-a">
+                No. Todo el contenido es estrictamente educativo. No se trata de recomendaciones personalizadas ni de
+                una invitación directa a invertir. Siempre debes valorar tu situación, tu perfil de riesgo y, si lo
+                consideras necesario, consultar con un profesional regulado.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div>© <span id="year"></span> TradingMind AI · TradingMindai.es</div>
+          <div class="footer-links">
+            <a href="#top">Inicio</a>
+            <a href="#precio">Planes</a>
+            <a href="#faq">FAQ</a>
+            <a href="#">Política de privacidad (próximamente)</a>
+            <a href="#">Términos de uso (próximamente)</a>
+          </div>
+          <div class="footer-disclaimer">
+            <strong>Disclaimer:</strong> Todo el contenido de TradingMind AI es <strong>educativo</strong>. No es
+            asesoramiento financiero, ni recomendación de inversión, ni invitación a operar en los mercados. El trading
+            conlleva un alto nivel de riesgo y puede no ser adecuado para todos los perfiles. Nunca operes con dinero
+            que no puedas permitirte perder. El rendimiento pasado de cualquier estrategia o señal no garantiza
+            resultados futuros.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
